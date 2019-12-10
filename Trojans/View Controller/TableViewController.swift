@@ -85,7 +85,7 @@ class TableViewController: UITableViewController {
        
         /*
  
- 
+  
  let imageUrlString = "//cdn.playbuzz.com/cdn/38402fff-32a3-4e78-a532-41f3a54d04b9/cc513a85-8765-48a5-8481-98740cc6ccdc.jpg"
  
  let imageUrl = URL(string: imageUrlString)!

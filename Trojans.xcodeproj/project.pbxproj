@@ -35,7 +35,7 @@
 		AE5471F3239FF3E600EE176E /* 3dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5471D7239FF3E600EE176E /* 3dollar.png */; };
 		AE5471F4239FF3E600EE176E /* 1dollar.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AE5471D8239FF3E600EE176E /* 1dollar.jpeg */; };
 		AE5471F5239FF3E600EE176E /* 5star.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AE5471D9239FF3E600EE176E /* 5star.jpeg */; };
-		AE5471F7239FF43A00EE176E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5471F6239FF43A00EE176E /* MapViewController.swift */; };
+		AE5471F7239FF43A00EE176E /* MyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5471F6239FF43A00EE176E /* MyMapViewController.swift */; };
 		AE5471FA239FF6C400EE176E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5471F9239FF6C400EE176E /* CoreLocation.framework */; };
 		AE5471FC239FF6D200EE176E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5471FB239FF6D200EE176E /* MapKit.framework */; };
 		AE736806238438EF00116D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE736805238438EF00116D6F /* AppDelegate.swift */; };
@@ -77,7 +77,7 @@
 		AE5471D7239FF3E600EE176E /* 3dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3dollar.png; path = ../../../images/3dollar.png; sourceTree = "<group>"; };
 		AE5471D8239FF3E600EE176E /* 1dollar.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1dollar.jpeg; path = ../../../images/1dollar.jpeg; sourceTree = "<group>"; };
 		AE5471D9239FF3E600EE176E /* 5star.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5star.jpeg; path = ../../../images/5star.jpeg; sourceTree = "<group>"; };
-		AE5471F6239FF43A00EE176E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AE5471F6239FF43A00EE176E /* MyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapViewController.swift; sourceTree = "<group>"; };
 		AE5471F9239FF6C400EE176E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AE5471FB239FF6D200EE176E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AE736802238438EF00116D6F /* Trojans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trojans.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +168,7 @@
 			children = (
 				AE736807238438EF00116D6F /* ViewController.swift */,
 				AE7F7A2B238ED7A900AEAAAB /* TableViewController.swift */,
-				AE5471F6239FF43A00EE176E /* MapViewController.swift */,
+				AE5471F6239FF43A00EE176E /* MyMapViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE736808238438EF00116D6F /* ViewController.swift in Sources */,
-				AE5471F7239FF43A00EE176E /* MapViewController.swift in Sources */,
+				AE5471F7239FF43A00EE176E /* MyMapViewController.swift in Sources */,
 				AE73681D23845D5A00116D6F /* GetData.swift in Sources */,
 				AE736806238438EF00116D6F /* AppDelegate.swift in Sources */,
 				AE7F7A2C238ED7A900AEAAAB /* TableViewController.swift in Sources */,

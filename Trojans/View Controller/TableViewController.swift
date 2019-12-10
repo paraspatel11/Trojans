@@ -100,5 +100,70 @@ class TableViewController: UITableViewController {
  */
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let row = indexPath.row
+        let rowData = (self.getData.dbData?[row])! as NSDictionary
+        
+      
+        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+        mainDelegate.selectedRestaurant = indexPath.row
+        mainDelegate.restName = (rowData["Name"] as? String)!
+        mainDelegate.restDesc = (rowData["Description"] as? String)!
+        mainDelegate.restDist = (rowData["Distance"] as? String)!
+        mainDelegate.restLat = (rowData["latCoord"] as? String)!
+        mainDelegate.restLong = (rowData["longCoord"] as? String)!
+        
+        
+        self.performSegue(withIdentifier: "ChooseSegueToView", sender: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let map = UITableViewRowAction(style: .normal, title: "View Map", handler:
+        {
+            action, index in
+            print("Map button tapped")
+            
+            
+            
+            let row = indexPath.row
+            let rowData = (self.getData.dbData?[row])! as NSDictionary
+            
+            
+            let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+            mainDelegate.selectedRestaurant = indexPath.row
+            mainDelegate.restName = (rowData["Name"] as? String)!
+            mainDelegate.restDesc = (rowData["Description"] as? String)!
+            mainDelegate.restDist = (rowData["Distance"] as? String)!
+            mainDelegate.restLat = (rowData["latCoord"] as? String)!
+            mainDelegate.restLong = (rowData["longCoord"] as? String)!
+            
+            self.performSegue(withIdentifier: "ChooseSegueToView", sender: nil)
+            
+            
+        }
+        )
+        map.backgroundColor = .green
+        
+        
+        let reservation = UITableViewRowAction(style: .normal, title: "Reservation", handler:
+        {
+            action, index in
+            print("Reservation button tapped")
+        }
+        )
+        reservation.backgroundColor = .orange
+        
+        
+        
+        return [reservation, map]
+    }
+    
+    
+    @IBAction func unwindtoTableViewControler(sender: UIStoryboardSegue)
+    {
+        
+    }
 }

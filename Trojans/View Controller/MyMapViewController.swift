@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  MyMapViewController.swift
 //  Trojans
 //
 //  Created by Faiza Jahanzeb on 2019-12-10.
@@ -12,7 +12,7 @@ import MapKit
 
 class MyMapViewController: UIViewController, MKMapViewDelegate,UITableViewDataSource, UITableViewDelegate  {
     
-    
+     //////////Initial Location is Sheridan college/////
     let locationManager = CLLocationManager()
     let initialLocation = CLLocation(latitude: 43.655787, longitude: -79.739543)
     
@@ -37,13 +37,14 @@ class MyMapViewController: UIViewController, MKMapViewDelegate,UITableViewDataSo
         /*
         centerMapOnLocation(location: initialLocation)
  */
+       ////////Drop pin at initial location////////
         let dropPin1 = MKPointAnnotation()
         dropPin1.coordinate = initialLocation.coordinate
         dropPin1.title = "Starting at Sheridan College"
         myMapView.addAnnotation(dropPin1)
         myMapView.selectAnnotation(dropPin1, animated: true)
  
-        
+        ////////////Center Map on the retsaurant/////////
         centerMapOnLocation(location: destLocation)
         let dropPin = MKPointAnnotation()
         dropPin.coordinate = destLocation.coordinate
@@ -61,7 +62,7 @@ class MyMapViewController: UIViewController, MKMapViewDelegate,UITableViewDataSo
         request.requestsAlternateRoutes = false
         request.transportType = .automobile
         
-        ////////////////////////////////////////
+        ///////////////////////Direction/////////////////
         let directions = MKDirections(request: request)
         
         directions.calculate(completionHandler:
@@ -78,21 +79,12 @@ class MyMapViewController: UIViewController, MKMapViewDelegate,UITableViewDataSo
                     
                     for step in route.steps{
                         self.routeSteps.add(step.instructions)
-                        
                     }
-                    
                     self.myTableView.reloadData()
                 }
         })
-        
-        
-        
-        
-        
-        
     }
     
-
     let regionRadius: CLLocationDistance = 2000
     
     func centerMapOnLocation(location : CLLocation)

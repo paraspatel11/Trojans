@@ -21,9 +21,6 @@ class TableViewController: UITableViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.refreshTable), userInfo: nil, repeats: true)
         
         getData.JSONParser()
-        
-       // getData.JSONParser(id: tag ?? 1)
-        
     }
     
     @objc func refreshTable(){

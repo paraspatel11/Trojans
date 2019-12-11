@@ -77,24 +77,14 @@ class TableViewController: UITableViewController {
         let displayPrice = rowData["Price"] as? String
         cell.myPrice.image = UIImage(named: displayPrice ?? "2dollar.jpeg")
         
-        let displayImage = rowData["Image"] as? String
-        cell.myImage.image = UIImage(named: displayImage ?? "Male.jpeg")
+       // let displayImage = rowData["Image"] as? String
+       // cell.myImage.image = UIImage(named: displayImage ?? "Male.jpeg")
        
-        /*
- 
-  
- let imageUrlString = "//cdn.playbuzz.com/cdn/38402fff-32a3-4e78-a532-41f3a54d04b9/cc513a85-8765-48a5-8481-98740cc6ccdc.jpg"
- 
- let imageUrl = URL(string: imageUrlString)!
- 
- let imageData = try! Data(contentsOf: imageUrl)
- 
- let image = UIImage(data: imageData)
- 
- 
-        let displayImage = rowData["Image"] as? String
-        cell.myImage.image = UIImage(named: "Male.jpeg")
- */
+        let imageUrl = rowData["imageUrl"] as? String ?? "https://interactive-examples.mdn.mozilla.net/media/examples/grapefruit-slice-332-332.jpg"
+        
+        
+        NKPlaceholderImage(image: UIImage(named: "Male.jpeg"), imageView: cell.myImage, imgUrl: imageUrl) { (image) in }
+       
         return cell
     }
     
@@ -162,5 +152,44 @@ class TableViewController: UITableViewController {
     @IBAction func unwindtoTableViewControler(sender: UIStoryboardSegue)
     {
         
+    }
+    
+    func NKPlaceholderImage(image:UIImage?, imageView:UIImageView?,imgUrl:String,compate:@escaping (UIImage?) -> Void){
+        
+        if image != nil && imageView != nil {
+            imageView!.image = image!
+        }
+        
+        var urlcatch = imgUrl.replacingOccurrences(of: "/", with: "#")
+        let documentpath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        urlcatch = documentpath + "/" + "\(urlcatch)"
+        
+        let image = UIImage(contentsOfFile:urlcatch)
+        if image != nil && imageView != nil
+        {
+            imageView!.image = image!
+            compate(image)
+            
+        }else{
+            
+            if let url = URL(string: imgUrl){
+                
+                DispatchQueue.global(qos: .background).async {
+                    () -> Void in
+                    let imgdata = NSData(contentsOf: url)
+                    DispatchQueue.main.async {
+                        () -> Void in
+                        imgdata?.write(toFile: urlcatch, atomically: true)
+                        let image = UIImage(contentsOfFile:urlcatch)
+                        compate(image)
+                        if image != nil  {
+                            if imageView != nil  {
+                                imageView!.image = image!
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
